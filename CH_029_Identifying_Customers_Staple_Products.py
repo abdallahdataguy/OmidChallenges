@@ -14,7 +14,7 @@ def get_products(row):
     return ','.join(products)
 
 # Read the Excel file
-file_path = r'C:\Users\aally\Downloads\CH-029 Identifying Customers Staple Products.xlsx'
+file_path = 'CH-029 Identifying Customers Staple Products.xlsx'
 df1 = pd.read_excel(file_path, usecols='I:J', nrows=4, skiprows=1) # Original data frame
 df2 = pd.read_excel(file_path, usecols='B:E', skiprows=1) # Data frame for computation
 df2 = df2.pivot_table(values='Quantity', index='Customer ID', columns='Product', aggfunc='sum').fillna(0)
