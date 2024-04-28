@@ -1,4 +1,4 @@
-# Link to the challenge
+# Link to the challengee
 # https://www.linkedin.com/posts/omid-motamedisedeh-74aba166_excelchallenge-powerquerychllenge-excel-activity-7189729963254640640-m0AH/
 
 import pandas as pd
