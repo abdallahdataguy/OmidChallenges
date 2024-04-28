@@ -3,14 +3,17 @@
 
 import pandas as pd
 
-# Read the Excel file
-file_path = 'CH-043 Sort Table columns .xlsx'
-df = pd.read_excel(file_path, usecols='B:G', nrows=8, skiprows=1)
+# Read the Excel file into multiple dataframes
+file_path = 'CH-044 Combine Tables.xlsx'
+df1 = pd.read_excel(file_path, usecols='C:F', skiprows=2, nrows=3)
+df2 = pd.read_excel(file_path, usecols='C:G', skiprows=8, nrows=3)
+df3 = pd.read_excel(file_path, usecols='C:F', skiprows=14, nrows=3)
 
 # Perform data transformation and cleansing
-totals = df.iloc[:, 1:].sum()
-df1 = df[totals.sort_values(ascending=False).index] # sorted df
-df = pd.concat([df.iloc[:, 0], df1], axis=1)
+df = pd.concat([df1, df2, df3]).fillna(value=0)
+df[df.columns[1:]] = df[df.columns[1:]].astype(int)
+df = df.groupby('Regions')[sorted(df.columns[1:])].sum()
+df = df.reset_index()
 
 # Print the output
-df
+print(df)
