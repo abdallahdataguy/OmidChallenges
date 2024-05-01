@@ -18,4 +18,4 @@ df[columns] = df['ID'].apply(text_split).tolist()
 df = df.iloc[ :, 1:]
 
 # Display the output
-print(df)
+print(f'\nFinal Results: \n\n{df}')
