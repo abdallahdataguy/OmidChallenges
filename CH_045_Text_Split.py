@@ -10,7 +10,7 @@ df = pd.read_excel(file_path, usecols='B', skiprows=1)
 
 # Perform data transformation and cleansing
 def text_split(col):
-    pattern = '([A-Z]+)(\d+)([A-Z]*)(\d*)([A-Z]*)'
+    pattern = '([A-Z]*)(\d*)([A-Z]*)(\d*)([A-Z]*)'
     return re.search(pattern, col).groups()
 
 columns = ['Part ' + str(x) for x in range(1, 6)]
