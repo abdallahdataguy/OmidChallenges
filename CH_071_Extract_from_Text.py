@@ -9,7 +9,7 @@ file_path = 'CH-071 Extract from Text.xlsx'
 df = pd.read_excel(file_path, usecols='B', skiprows=1)
 
 # Perform data wrangling
-pattern = r'\b([.\w]+@[.\w]+[.][a-z]+)\b'
+pattern = r'\b([.\w]+@[.\w]+\.[a-zA-Z]+)\b'
 # Capture all emails, in case of multiple, join by ", "
 emails = [', '.join(y) for x in df['Text'] if (y:=re.findall(pattern, x))]
 # Split by ', " where multiple emails were captured
