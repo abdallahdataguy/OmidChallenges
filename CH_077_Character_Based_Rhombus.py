@@ -15,5 +15,5 @@ def char_based_rhombus(n):
 # Perform data wrangling
 df = pd.DataFrame(char_based_rhombus(20))
 
-# Display the final output
+# Display the final dataset
 df
