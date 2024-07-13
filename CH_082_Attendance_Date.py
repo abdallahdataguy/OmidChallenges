@@ -11,14 +11,13 @@ df['Date'] = df.apply(
 lambda x: pd.date_range(x['From'], x['To']), axis=1
 )
 df = df.explode(column='Date', ignore_index=True)
-df = df[['Date', 'Supervisor']]
 
 values = []
 for dt in sorted(df['Date'].unique()):
     shared = df['Supervisor'][df['Date'] == dt].unique()
     values.append([dt, ', '.join(shared)])
 
-df = pd.DataFrame(data=values, columns=df.columns)
+df = pd.DataFrame(data=values, columns=['Date', 'Supervisors'])
 
 # Display the final results
 df
