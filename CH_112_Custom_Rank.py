@@ -7,7 +7,7 @@
 df = xl("C2:E6", headers=True)
 
 # Perform data manipulation
-df['Diff'] = df[2023] -df[2022]
+df['Diff'] = df[2023] - df[2022]
 df = df.sort_values(
     by='Diff', 
     ascending=False, 
